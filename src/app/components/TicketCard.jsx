@@ -8,7 +8,7 @@ export default function TicketCard ({ticket, inQueue, onAdd }) {
             <p>Priority: {priority}</p>
             <p>Status: {status}</p>
             <p>Assignee: {assignee}</p>
-            <p>Updated: {updatedAt}</p>
+            <p>Updated: {new Date(updatedAt).toLocaleString()}</p>
             <button onClick={() => onAdd(ticket.id)} disabled={inQueue}>{inQueue ? 'Already in Queue' : 'Add to my Queue'}</button>
         </div>
 

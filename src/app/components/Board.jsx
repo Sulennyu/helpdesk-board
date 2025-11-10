@@ -51,7 +51,7 @@ const handleFilter = (k) => (v) => setFilters (f => ({...f,[k]: v }));
 
 const visibleTickets = tickets.filter(t =>
 (filters.status === 'All' || t.status === filters.status) &&
-(filters.priority === 'All' || t.priority === filters.priority) 
+(filters.priority === 'All' || t.priority === filters.priority)
 );
 
 const addQueue = id => setQueue(prev => ({...prev, [id]: true}));
