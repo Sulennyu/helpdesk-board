@@ -1,10 +1,10 @@
-import Board from './Components/Board';
+import Board from './components/Board';
 
 export default function HomePage() {
   return (
-    <main>
-    <h1>Helpdesk Ticket Board</h1>
-    <Board />
+    <main className="mx-auto max-w-6xl p-6">
+      <h1 className="text-3xl font-bold mb-4">Helpdesk Ticket Board</h1>
+      <Board />
     </main>
   );
 }

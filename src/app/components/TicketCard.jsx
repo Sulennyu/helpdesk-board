@@ -3,7 +3,7 @@
 export default function TicketCard ({ticket, inQueue, onAdd }) {
     const {title, priority, status, assignee, updatedAt} = ticket;
     return (
-        <div>
+        <div className= "border p-4 rounded shadow mb-2 flex justify-between items-center">
             <h3>{title}</h3>
             <p>Priority: {priority}</p>
             <p>Status: {status}</p>
