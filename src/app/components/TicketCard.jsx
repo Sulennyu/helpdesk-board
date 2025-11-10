@@ -1,12 +1,15 @@
 'use client';
-import TicketCard from "./TicketCard";
 
-export default function TicketList ({tickets, queue, onAddToQueue}) {
+export default function TicketCard ({ticket, inQueue, onAdd }) {
+    const {title, priority, status, assignee, updatedAt} = ticket;
     return (
         <div>
-            {tickets.map(ticket => (
-                <TicketCard key={ticket.id} ticket={ticket} inQueue={!!queue[ticket.id]} onAdd={onAddToQueue}/>
-            ))}
+            <h3>{title}</h3>
+            <p>Priority: {priority}</p>
+            <p>Status: {status}</p>
+            <p>Assignee: {assignee}</p>
+            <p>Updated: {updatedAt}</p>
+            <button onClick={() => onAdd(ticket.id)} disabled={inQueue}>{inQueue ? 'Already in Queue' : 'Add to my Queue'}</button>
         </div>
 
     )
