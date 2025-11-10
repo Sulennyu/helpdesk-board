@@ -31,4 +31,21 @@ useEffect (() => {
   }
 load();
 }, []);
+useEffect(() => {
+    if (!tickets.length) return;
+    let i=0;
+    const s = ['Open','In Progress','on Hold','Resolved'];
+    const p = ['Low','Medium','High','Critical'];
+    const id = setInterval (() => {
+        setTickets(prev => {
+            const list = [...prev];
+            const t = {...prev[i]};
+            t.status = s[i] || s[0];
+            t.priority = p[i] || p[0];
+            i = i + 1 < prev.length ? i +1: 0;
+            return prev.map(e => e.id === t.id ? t : e);
+     });
+    }, 7000);
+    return () => clearInterval(id);
+}, [tickets.length])
 }
